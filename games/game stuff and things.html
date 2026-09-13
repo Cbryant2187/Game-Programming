@@ -18,75 +18,26 @@
 
         <script src="../engine/vector2.js"></script>
         <script src="../engine/input.js"></script>
-        <script src="../engine/engine.js"></script> 
+        <script src="../engine/engine.js"></script>
+        <script src="../engine/scene.js"></script>
+        <script src="../engine/gameObject.js"></script>
+        <script src="../engine/component.js"></script>
+        <script src="../engine/components/transform.js"></script>
+        <script src="../engine/components/polygon.js"></script>
+
+        <script src="mainScene.js"></script>
+        <script src="drawComponent.js"></script>
+        <script src="mainGameObject.js"></script>
+        <script src="updateComponent.js"></script>
+        <script src="laserController.js"></script>
+        <script src="laserGameObject.js"></script>
+        <script src="laserPolygon.js"></script>
 
 
         <script>
-            let canvas = document.querySelector("#canv")
-            let ctx = canvas.getContext("2d")
-
-            canvas.width = window.innerwidth
-            canvas.width = window.innerheight
-
-            let position = new Vector2(50, 50)
-
-            function gameLoop(){
-                update()
-                draw()
-                requestAnimationFrame(gameLoop)
-            }
-
-            function update() {
-                
-                if (Input.isKeyDown("ArrowRight")){
-                    position.x = position.x + 1
-                }
-
-                if (Input.isKeyDown("ArrowLeft")){
-                    position.x = position.x - 1
-                }
-
-                if (Input.isKeyDown("ArrowUp")){
-                    position.y = position.y - 1
-                }
-
-                if (Input.isKeyDown("ArrowDown")){
-                    position.y = position.y + 1
-                }
-
-            }
-
-                
-            function draw(ctx) {
-            //signal to context about to draw, tutorial skip typical
-            ctx.save()
-
-            //centering, Y GOES DOWN
-            ctx.translate(position.x, position.y)
-
-            ctx.lineTo(0, -20)
-            ctx.lineTo(10, -30)
-            ctx.lineTo(10, 0)
-            ctx.lineTo(50, -40)
-            ctx.lineTo(60, -50)
-            ctx.lineTo(500, 0)
-            ctx.lineTo(0, 40)
-
-
-            ctx.fillStyle = "blue"
-            ctx.fill()
-
-            ctx.restore()
-        }
-        
-        requestAnimationFrame(gameLoop)
-
-            //signal to context end of drawing
-            ctx.store()
-
-
-        Engine.start()
-
+            
+            Engine.currentScene = new MainScene()
+            Engine.start()
 
         </script>
     </body>
