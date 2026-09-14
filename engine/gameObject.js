@@ -2,6 +2,7 @@ class Gameobject{
 
     //default list of components
     components = []
+    markfordestroy
 
     //find location of object
     get transform(){
@@ -44,5 +45,10 @@ class Gameobject{
             //only draw if able, otherwise ignore
             component.draw?.(ctx)
         }
+    }
+
+    destroy(){
+        this.markForDestroy = true
+
     }
 }

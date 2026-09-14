@@ -1,7 +1,7 @@
 class Polygon extends Component{
 
     //set default polygon attributes
-    fillstyle = "magenta"
+    fillstyle ="black"
     points = []
 
     draw(ctx){
