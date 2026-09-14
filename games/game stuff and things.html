@@ -2,13 +2,16 @@
 <html>
 
     <head>
-        <title>Drawing Demo</title>
+
+        <title>Bryant Game Demo</title>
+
         <style>            
         *{
             margin:0;
             overflow: hidden;
             }
         </style>
+
     </head>
 
     <body>
@@ -16,6 +19,7 @@
 
         </canvas>
 
+        // engine files
         <script src="../engine/vector2.js"></script>
         <script src="../engine/input.js"></script>
         <script src="../engine/engine.js"></script>
@@ -25,6 +29,7 @@
         <script src="../engine/components/transform.js"></script>
         <script src="../engine/components/polygon.js"></script>
 
+        // games files
         <script src="mainScene.js"></script>
         <script src="drawComponent.js"></script>
         <script src="mainGameObject.js"></script>
@@ -36,10 +41,10 @@
 
         <script>
             
+            // game engine starter
             Engine.currentScene = new MainScene()
             Engine.start()
 
         </script>
     </body>
-
 </html>
