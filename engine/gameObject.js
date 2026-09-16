@@ -2,7 +2,8 @@ class Gameobject{
 
     //default list of components
     components = []
-    markfordestroy
+    markfordestroy = false
+    name
 
     //find location of object
     get transform(){
@@ -12,8 +13,9 @@ class Gameobject{
     }
 
     //create new component
-    constructor(){
+    constructor(name){
         this.addComponent(new Transform())
+        this.name = name
     }
 
     //connecting component to a gameobject
@@ -49,6 +51,12 @@ class Gameobject{
 
     destroy(){
         this.markForDestroy = true
+
+    }
+
+    static find(name){
+        
+        return Engine.currentScene.gameObject.find(go=>go.name == name)
 
     }
 }

@@ -1,4 +1,6 @@
 class Transform extends Component{
-    //setting default position of object using transform
+    //default values
     position = new Vector2(0,0)
+    scale = new Vector2(1,1)
+    rotation = 0
 }

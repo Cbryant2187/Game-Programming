@@ -10,6 +10,7 @@ class Obstacle extends Gameobject{
             new Vector2(10, -15),
             new Vector2(10, 10),
             new Vector2(-10, 10),
+            
         ]}) 
     }
 }
@@ -31,6 +32,5 @@ class ObstacleLoop extends Component{
             instantiate(new Obstacle(), this.transform.position.clone())
 
         }
-
     }
 }

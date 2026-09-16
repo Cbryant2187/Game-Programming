@@ -3,10 +3,11 @@ class Scene{
     //default list of game objects in scene
     gameObjects = []
 
-    //create game object in game
-    instantiate(gameObject, position = new Vector2(0,0)){
+    //create game object in game, set defaults
+    instantiate(gameObject, position = new Vector2(0,0), rotation = 0){
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
+        gameObject.transform.rotation
     }
 
     //start a gameobject in a scene
@@ -42,7 +43,7 @@ class Scene{
 }
 
 //function to instantiate gameobjects
-function instantiate(gameObject, position = new Vector2(0,0)){
+function instantiate(gameObject, position = new Vector2(0,0), rotation = 0){
     //set game object location
-    Engine.currentScene.instantiate(gameObject, position)
+    Engine.currentScene.instantiate(gameObject, position, rotation)
 }
