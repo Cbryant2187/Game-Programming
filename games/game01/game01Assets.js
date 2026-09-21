@@ -1,8 +1,8 @@
 class Assets{
     static triangle = [
-        new Vector2(0, -20),
-        new Vector2(10, 10),
-        new Vector2(-10, 10)
+        new Vector2(0, 10),
+        new Vector2(10, 0),
+        new Vector2(-10, 0)
     ]
     static square = [
         new Vector2(0, 0),
