@@ -14,7 +14,4 @@ class Input{
         //remove key from key list
         Input.keysDown.splice(index,1)
     }
-
-
-
 }

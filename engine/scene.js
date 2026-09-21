@@ -7,7 +7,7 @@ class Scene{
     instantiate(gameObject, position = new Vector2(0,0), rotation = 0){
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
-        gameObject.transform.rotation
+        gameObject.transform.rotation = rotation
     }
 
     //start a gameobject in a scene
@@ -21,19 +21,19 @@ class Scene{
     update(){
         for(const gameObject of this.gameObjects){
             gameObject.update()
-
-            let temp = []
-            for(const gameObject of this.gameObjects){
-                if(!gameObject.markForDestroy)
-                    temp.push(gameObject)
-                
-            this.gameObjects = temp
-            }
+        
         }
+
+        let temp = []
+        for(const gameObject of this.gameObjects){
+            if(!gameObject.markForDestroy)
+                temp.push(gameObject)
+        }  
+        
+        this.gameObjects = temp
+        
     }
-
-
-
+    
     //draw object
     draw(ctx){
         for(const gameObject of this.gameObjects){

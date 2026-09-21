@@ -1,4 +1,4 @@
-class Gameobject{
+class GameObject{
 
     //default list of components
     components = []
@@ -56,7 +56,7 @@ class Gameobject{
 
     static find(name){
         
-        return Engine.currentScene.gameObject.find(go=>go.name == name)
+        return Engine.currentScene.gameObjects.find(go=>go.name == name )
 
     }
 }

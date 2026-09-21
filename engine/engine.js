@@ -24,6 +24,8 @@ class Engine{
         //full game loop
         Engine.update()
         Engine.draw()
+
+        Time.update()
         requestAnimationFrame(Engine.gameLoop)
     }
 

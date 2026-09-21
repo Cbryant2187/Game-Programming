@@ -1,16 +1,11 @@
-class Maingameobject extends Gameobject{
+class MainGameObject extends GameObject{
     constructor(){
-        super()
+        super("Main")
 
         // creating central shape/ playable object
-        this.addComponent(new Updatecomponent())
+        this.addComponent(new UpdateComponent())
         
         // defining playable shape
-        this.addComponent(new LaserPolygon(), {fillstyle:"yellow", points:[
-            new Vector2(0, -20),
-            new Vector2(10, 10),
-            new Vector2(-10, 10)
-
-        ] } )
+        this.addComponent(new Polygon(), {fillstyle:"blue", points:Assets.triangle})
     }
 }

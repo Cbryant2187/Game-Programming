@@ -1,6 +1,6 @@
-class Updatecomponent extends Component{
+class UpdateComponent extends Component{
     
-    speed = 10
+    speed = 50
     
     start(){
         // set starting time
@@ -12,16 +12,16 @@ class Updatecomponent extends Component{
         this.timeSinceLastLaser += 1
                 
         if (Input.keysDown.includes("ArrowRight"))
-            this.transform.position.x = this.transform.position.x + Time.delataTime
+            this.transform.position.x = this.transform.position.x + Time.delataTime * this.speed
         
         if (Input.keysDown.includes("ArrowLeft"))
-            this.transform.position.x = this.transform.position.x - 2
+            this.transform.position.x = this.transform.position.x - Time.delataTime * this.speed
 
         if (Input.keysDown.includes("ArrowUp"))
-            this.transform.position.y = this.transform.position.y - 1
+            this.transform.position.y = this.transform.position.y + Time.delataTime * this.speed
 
         if (Input.keysDown.includes("ArrowDown"))
-            this.transform.position.y = this.transform.position.y + 0.5
+            this.transform.position.y = this.transform.position.y - Time.delataTime * this.speed
 
         //checking for time since last laser
         if(this.timeSinceLastLaser > 20){
