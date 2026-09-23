@@ -45,5 +45,5 @@ class Scene{
 //function to instantiate gameobjects
 function instantiate(gameObject, position = new Vector2(0,0), rotation = 0){
     //set game object location
-    Engine.currentScene.instantiate(gameObject, position, rotation)
+    SceneManager.currentScene.instantiate(gameObject, position, rotation)
 }

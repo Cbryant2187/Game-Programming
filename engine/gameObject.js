@@ -4,6 +4,7 @@ class GameObject{
     components = []
     markfordestroy = false
     name
+    tags = []
 
     //find location of object
     get transform(){
@@ -13,9 +14,10 @@ class GameObject{
     }
 
     //create new component
-    constructor(name){
+    constructor(name, tags = []){
         this.addComponent(new Transform())
         this.name = name
+        this.tags = tags
     }
 
     //connecting component to a gameobject
@@ -27,9 +29,10 @@ class GameObject{
 
     //activate a component
     start(){
-        for(const component of this.components){
+        for(const component of this.components.filter(c=>|c.didStart)){
             //activate only if found and able, otherwise ignore
             component.start?.()
+            component.didStart = true
         }
     }
 
@@ -61,7 +64,13 @@ class GameObject{
 
     static find(name){
         
-        return Engine.currentScene.gameObjects.find(go=>go.name == name )
+        return SceneManager.currentScene.gameObjects.find(go=>go.name == name )
+
+    }
+
+    static findGameObjectsWithTag(tag){
+        
+        return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
 
     }
 }

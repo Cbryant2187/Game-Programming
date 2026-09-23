@@ -26,6 +26,7 @@
             <script src="../../engine/component.js"></script>
             <script src="../../engine/gameObject.js"></script>
             <script src="../../engine/scene.js"></script>
+            <script src="../../engine/sceneManager.js"></script>
 
             <script src="../../engine/time.js"></script>
             
@@ -36,21 +37,26 @@
             <script src="./components/laserController.js"></script>
             <script src="./components/enemyController.js"></script>
             <script src="./components/healthComponent.js"></script>
+            <script src="./components/levelController.js"></script>
+            <script src="./components/pointsController.js"></script>
 
             <script src="./gameObjects/mainGameObject.js"></script>
             <script src="./gameObjects/laserGameObject.js"></script>
             <script src="./gameObjects/enemyGameObject.js"></script>
             <script src="./gameObjects/pointsGameObject.js"></script>
+            <script src="./gameObjects/levelControllerGameObject.js"></script>
             
-            <script src="./scenes/mainScene.js"></script>
+            <script src="./scenes/genericLevel.js"></script>
+            <script src="./scenes/level01.js"></script>
+            <script src="./scenes/level02.js"></script>
 
             <script src="./assets.js"></script>
+            <script src="./globals.js"></script>
         
         <script>
             
             // game engine starter
-            Engine.currentScene = new MainScene()
-            Engine.start()
+            Engine.start(level01)
 
         </script>
     </body>

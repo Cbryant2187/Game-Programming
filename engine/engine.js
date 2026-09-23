@@ -1,7 +1,6 @@
 class Engine{
     static canvas
     static ctx
-    static currentScene
 
     static start(){
 
@@ -13,7 +12,9 @@ class Engine{
         addEventListener("keydown", Input.keydown)
         addEventListener("keyup", Input.keyup) 
 
-        Engine.currentScene.start()
+
+
+        SceneManager.nextScene = nextScene
 
         //begin gameloop
         requestAnimationFrame(Engine.gameLoop)
@@ -21,6 +22,7 @@ class Engine{
     }
 
     static gameLoop(){
+        SceneManager.update()
         //full game loop
         Engine.update()
         Engine.draw()
@@ -30,8 +32,9 @@ class Engine{
     }
 
     static update(){
+        SceneManager.currentScene.start()
         //track updating any input or game changes by each frame
-        Engine.currentScene.update()
+        SceneManager.currentScene.update()
     }
 
     static draw(){
@@ -41,6 +44,6 @@ class Engine{
         Engine.canvas.height = window.innerHeight
         
         //draw current game frame using any updates
-        Engine.currentScene.draw(Engine.ctx)
+        SceneManager.currentScene.draw(Engine.ctx)
     }
 }
