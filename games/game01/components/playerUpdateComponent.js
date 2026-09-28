@@ -11,6 +11,5 @@ class PlayerUpdateComponent extends Component{
         if (Input.keysDown.includes("ArrowUp"))
             this.transform.position.y = this.transform.position.y - 5
 
-
     }
 }

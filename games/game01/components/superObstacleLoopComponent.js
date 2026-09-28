@@ -15,9 +15,9 @@ class SuperObstacleLoop extends Component{
             this.gameObject.destroy()
         }
 
-        if(this.obCount < 5000){
-            if(this.timeSinceLastOp > 10){
-                instantiate(new ObstacleObject(), new Vector2(this.timeSinceLastOp + this.progressOp, 800))
+        if(this.obCount < 100){
+            if(this.timeSinceLastOp > 5){
+                instantiate(new ObstacleObjectV(), new Vector2(this.timeSinceLastOp + this.progressOp, 800))
                 instantiate(new ObstacleObjectH(), new Vector2(10, this.timeSinceLastOp + this.progressOp))
                 this.timeSinceLastOp = 0
                 this.obCount += 1

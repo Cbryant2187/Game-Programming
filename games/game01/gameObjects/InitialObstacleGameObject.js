@@ -1,7 +1,7 @@
-class VerticalObstacleObject extends GameObject{
+class InitialObstacleObject extends GameObject{
 
     constructor(){
-        super()
+        super("Obstacle", ["Obstacle"])
 
         this.addComponent(new SuperObstacleLoop())
 

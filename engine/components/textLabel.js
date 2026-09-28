@@ -1,6 +1,7 @@
 class TextLabel extends Component{
-    fillstyle = "balck"
+    fillstyle = "black"
     text = "[BLANK]"
+    font = "10px Arial"
 
     draw(ctx){
 
@@ -11,15 +12,10 @@ class TextLabel extends Component{
         ctx.scale(this.transform.scale.x, this.transform.scale.y)
         ctx.rotate(this.transform.rotation)
 
-        ctx.beginPath()
-
-        //iterating over given points to create shape
-        for(const point of this.points){
-            ctx.lineTo(point.x, point.y)
-        }
-
         //coloring
         ctx.fillstyle = this.fillstyle
+
+        ctx.font = this.font
 
         ctx.fillText(this.text, 0, 0)
 
