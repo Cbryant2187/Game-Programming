@@ -9,7 +9,7 @@ class LaserController extends Component{
 
         let myPosition = this.transform.position
         let enemyGameObjects = GameObject.findGameObjectsWithTag("Enemy")
-        for (enemyGameObject){
+        for (const enemyGameObject of enemyGameObjects){
             let enemyPosition = enemyGameObject.transform.position
             let distance = myPosition.minus(enemyPosition).magnitude
 

@@ -1,4 +1,4 @@
-class MainScene extends Scene{
+class Level01 extends Scene{
     constructor(){
         super()
         this.instantiate(new EnemyGameObject(), new Vector2(25, 150), Math.PI)

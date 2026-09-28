@@ -1,10 +1,10 @@
-class VerticalObstacleObject extends GameObject{
+class ObstacleObjectH extends GameObject{
 
     constructor(){
         super()
-
-        this.addComponent(new SuperObstacleLoop())
-
+        this.addComponent(new ObstacleLoopH())
         this.addComponent(new Polygon(), {fillstyle:"yellow", points:Assets.square})
+
     }
+
 }

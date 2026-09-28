@@ -2,7 +2,7 @@ class Engine{
     static canvas
     static ctx
 
-    static start(){
+    static start(nextScene){
 
         //defining canvas
         Engine.canvas = document.querySelector("#canv")

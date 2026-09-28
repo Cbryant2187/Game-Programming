@@ -1,4 +1,4 @@
-class LevelController extends CompositionEvent{
+class LevelController extends Component{
 
     start(){
         SceneManager.loadScene(GenericLevel, true)
@@ -7,7 +7,6 @@ class LevelController extends CompositionEvent{
     update(){
         let enemyGameObject = GameObject.find("Enemy")
         if(!enemyGameObject){
-            SceneManager.nextScene = Level02
             SceneManager.loadScene(Level02)
 
         }

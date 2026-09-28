@@ -29,7 +29,7 @@ class GameObject{
 
     //activate a component
     start(){
-        for(const component of this.components.filter(c=>|c.didStart)){
+        for(const component of this.components.filter(c=>!c.didStart)){
             //activate only if found and able, otherwise ignore
             component.start?.()
             component.didStart = true
