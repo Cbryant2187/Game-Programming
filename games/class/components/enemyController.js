@@ -15,6 +15,5 @@ class EnemyController extends Component{
             this.gameObject.destroy()
 
         }
-
     }
 }

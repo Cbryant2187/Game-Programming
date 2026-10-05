@@ -1,19 +1,8 @@
 {
-    "compilerOptions": {
-        "checkJs": true,
-        "noEmit":true,
-        "strict": false,
-        "experimentalDecorators": true,
-        "lib": [
-            "esnext",
-            "dom"
-        ],
-        "target":"esnext",
-    },
-    "exclude": [
-        "./games/"
-    ],
-    "include":[
-        "../../engine/"
+    "extends": "../../jsconfig.json",
+    "exclude": [],
+    "include": [
+        "./**/*",
+        "../../engine/**/*"
     ]
 }

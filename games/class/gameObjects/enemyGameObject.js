@@ -1,10 +1,10 @@
 class EnemyGameObject extends GameObject {
 
     constructor(){
-        super("Enemy", ["Enemy"])
+        super("Enemy", ["Enemy"], "ships")
         this.addComponent(new Polygon(), {fillstyle: "green", points:Assets.triangle})
         this.addComponent(new EnemyController())
-        this.addComponent(new Health())
+        this.addComponent(new Health(), {health:2})
 
     }
 }

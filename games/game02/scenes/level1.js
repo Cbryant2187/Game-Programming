@@ -5,6 +5,4 @@ class Level1 extends Scene{
 
     }
 
-
-
 }

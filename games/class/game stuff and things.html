@@ -1,64 +1,67 @@
 <!doctype html>
 <html>
 
-    <head>
+<head>
 
-        <title>Bryant Game Demo</title>
+    <title>Bryant Game Demo</title>
 
-        <style>            
-            *{
-                margin:0;
-                overflow: hidden;
-            }
-        </style>
+    <style>            
+        * {
+            margin:0;
+            overflow: hidden;
+        }
+    </style>
 
-    </head>
+</head>
 
-    <body>
-        <canvas id="canv">
+<body>
+    <canvas id="canv">
 
-        </canvas>
+    </canvas>
 
-     
-            <script src="../../engine/vector2.js"></script>
-            <script src="../../engine/input.js"></script>
-            <script src="../../engine/engine.js"></script>
-            <script src="../../engine/component.js"></script>
-            <script src="../../engine/gameObject.js"></script>
-            <script src="../../engine/scene.js"></script>
-            <script src="../../engine/sceneManager.js"></script>
+    
+    <script src="../../engine/vector2.js"></script>
+    <script src="../../engine/input.js"></script>
+    <script src="../../engine/engine.js"></script>
+    <script src="../../engine/component.js"></script>
+    <script src="../../engine/gameObject.js"></script>
+    <script src="../../engine/scene.js"></script>
+    <script src="../../engine/sceneManager.js"></script>
 
-            <script src="../../engine/time.js"></script>
-            
-            <script src="../../engine/components/transform.js"></script>
-            <script src="../../engine/components/polygon.js"></script>
-            <script src="../../engine/components/textLabel.js"></script>
+    <script src="../../engine/time.js"></script>
+    
+    <script src="../../engine/components/transform.js"></script>
+    <script src="../../engine/components/polygon.js"></script>
+    <script src="../../engine/components/textLabel.js"></script>
+    <script src="../../engine/components/camera.js"></script>
 
-            <script src="./components/updateComponent.js"></script>
-            <script src="./components/laserController.js"></script>
-            <script src="./components/enemyController.js"></script>
-            <script src="./components/health.js"></script>
-            <script src="./components/levelController.js"></script>
-            <script src="./components/pointsController.js"></script>
+    <script src="./components/updateComponent.js"></script>
+    <script src="./components/laserController.js"></script>
+    <script src="./components/enemyController.js"></script>
+    <script src="./components/health.js"></script>
+    <script src="./components/levelController.js"></script>
+    <script src="./components/pointsController.js"></script>
 
-            <script src="./gameObjects/mainGameObject.js"></script>
-            <script src="./gameObjects/laserGameObject.js"></script>
-            <script src="./gameObjects/enemyGameObject.js"></script>
-            <script src="./gameObjects/pointsGameObject.js"></script>
-            <script src="./gameObjects/levelControllerGameObject.js"></script>
-            
-            <script src="./scenes/genericLevel.js"></script>
-            <script src="./scenes/level01.js"></script>
-            <script src="./scenes/level02.js"></script>
+    <script src="./gameObjects/mainGameObject.js"></script>
+    <script src="./gameObjects/laserGameObject.js"></script>
+    <script src="./gameObjects/enemyGameObject.js"></script>
+    <script src="./gameObjects/pointsGameObject.js"></script>
+    <script src="./gameObjects/levelControllerGameObject.js"></script>
+    
+    <script src="./scenes/genericLevel.js"></script>
+    <script src="./scenes/level01.js"></script>
+    <script src="./scenes/level02.js"></script>
 
-            <script src="./assets.js"></script>
-            <script src="./globals.js"></script>
+    <script src="./assets.js"></script>
+    <script src="./globals.js"></script>
+    <script src="./settings.js"></script>
+    
+    <script>
         
-        <script>
-            
-            // game engine starter
-            Engine.start(Level01)
+        // game engine starter
+        Engine.start(Level01, Settings)
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>

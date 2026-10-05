@@ -2,9 +2,10 @@ class GameObject{
 
     //default list of components
     components = []
-    markfordestroy = false
+    markForDestroy = false
     name
     tags = []
+    layer = "default"
 
     //find location of object
     get transform(){
@@ -14,10 +15,11 @@ class GameObject{
     }
 
     //create new component
-    constructor(name, tags = []){
+    constructor(name, tags = [], layer = 'default'){
         this.addComponent(new Transform())
         this.name = name
         this.tags = tags
+        this.layer = layer
     }
 
     //connecting component to a gameobject
@@ -25,6 +27,12 @@ class GameObject{
         Object.assign(component, parameters)
         this.components.push(component)
         component.gameObject = this
+    }
+
+    broadcastMessgae(message, args =[]){
+        for(const component of this.components){
+            component[message]?.(...args)
+        }
     }
 
     //activate a component
@@ -58,7 +66,7 @@ class GameObject{
     }
 
     getComponent(type){
-        return this.components.find(c=>c instanceof type)
+        return (this.components.find(c=>c instanceof type))
 
     }
 
@@ -72,5 +80,9 @@ class GameObject{
         
         return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
 
+    }
+
+    static findGameObjectByType(type){
+        return SceneManager.currentScene.gameObjects.filter(go=>go.components.find(c=>c instanceof type))
     }
 }

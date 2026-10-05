@@ -1,6 +1,6 @@
 class MainGameObject extends GameObject{
     constructor(){
-        super("Main")
+        super("Main", [], "ships")
 
         // creating central shape/ playable object
         this.addComponent(new UpdateComponent())

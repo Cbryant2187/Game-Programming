@@ -1,12 +1,11 @@
 class Polygon extends Component{
 
     //set default polygon attributes
-    fillstyle ="black"
+    fillstyle = "black"
     points = []
 
     draw(ctx){
-        let position = this.transform.position
-
+    
         //begin drawing
         ctx.save()
         //centering drawing on x, y

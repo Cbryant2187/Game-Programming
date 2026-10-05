@@ -12,16 +12,16 @@ class UpdateComponent extends Component{
         this.timeSinceLastLaser += 1
                 
         if (Input.keysDown.includes("ArrowRight"))
-            this.transform.position.x = this.transform.position.x + Time.delataTime * this.speed
+            this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
         
         if (Input.keysDown.includes("ArrowLeft"))
-            this.transform.position.x = this.transform.position.x - Time.delataTime * this.speed
+            this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
 
         if (Input.keysDown.includes("ArrowUp"))
-            this.transform.position.y = this.transform.position.y + Time.delataTime * this.speed
+            this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
 
         if (Input.keysDown.includes("ArrowDown"))
-            this.transform.position.y = this.transform.position.y - Time.delataTime * this.speed
+            this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
 
         //checking for time since last laser
         if(this.timeSinceLastLaser > 20){
@@ -29,10 +29,9 @@ class UpdateComponent extends Component{
             this.timeSinceLastLaser = 0
             //creating new laser object
             instantiate(new LaserGameObject(), this.transform.position.clone())
-            let laserGameObject = instantiate(new LaserGameObject())
-            if(Math.random() < .5)
-                laserGameObject.getComponent(Polygon).fillstyle = "green"
 
         }
+
+        Camera.main.transform.position = this.transform.position.clone()
     }
 }
