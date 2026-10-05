@@ -1,4 +1,7 @@
 class Scene {
+    
+    gameObjects = []
+
     constructor() {
         let cameraGameObject = new GameObject("MainCamera", ["MainCamera"])
         cameraGameObject.addComponent(new Camera())
@@ -11,6 +14,7 @@ class Scene {
         gameObject.transform.rotation = rotation
         return gameObject
     }
+
 
     start() {
         for (const gameObject of this.gameObjects) {
@@ -30,7 +34,6 @@ class Scene {
         }
         this.gameObjects = temp
     }
-
     draw(ctx) {
         ctx.fillStyle = Camera.main.backgroundColor
         ctx.fillRect(0, 0, Engine.canvas.width, Engine.canvas.height)
