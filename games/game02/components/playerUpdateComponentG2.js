@@ -1,13 +1,10 @@
-class UpdateComponent extends Component {
+class PlayerUpdateComponentG2 extends Component{
 
-    speed = 50
     start(){
-        this.timeSinceLastLaser = 0
+        
     }
-    update() {
-        this.timeSinceLastLaser += 1
-        //Check to see if the right arrow key is down.
-        //If it is, move our character right
+
+    update(){
         if (Input.keysDown.includes("ArrowRight"))
             this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
 
@@ -25,13 +22,6 @@ class UpdateComponent extends Component {
         //If it is, move our character down
         if (Input.keysDown.includes("ArrowDown"))
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
-
-        if(this.timeSinceLastLaser > 20){
-            this.timeSinceLastLaser = 0
-            let laserGameObject  = instantiate(new LaserGameObject(), this.transform.position.clone())
-            laserGameObject.getComponent(Polygon).fillstyle = "Orange"
-        }
-
-        Camera.main.transform.position = this.transform.position.clone()
     }
+
 }

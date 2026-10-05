@@ -9,13 +9,9 @@ class Engine {
         
         Engine.canvas = document.querySelector("#canv")
 
-        
         Engine.ctx = Engine.canvas.getContext("2d")
 
-        
         addEventListener("keydown", Input.keydown)
-
-        
         addEventListener("keyup", Input.keyup)
 
         SceneManager.nextScene = nextScene
@@ -24,11 +20,9 @@ class Engine {
             Engine.layers = settings.layers
         }
 
-        
         requestAnimationFrame(Engine.gameLoop)
     }
 
-   
     static gameLoop() {
         SceneManager.update()
 
@@ -38,7 +32,6 @@ class Engine {
 
         Time.update()
 
-        
         requestAnimationFrame(Engine.gameLoop)
     }
 
@@ -56,5 +49,4 @@ class Engine {
 
         SceneManager.currentScene.draw(Engine.ctx)
     }
-
 }

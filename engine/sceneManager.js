@@ -13,7 +13,7 @@ class SceneManager{
         if(!additive){
             SceneManager.nextScene = nextScene
         }
-        else{
+        else {
             const tempScene = new nextScene()
             for(const gameObject of tempScene.gameObjects){
                 SceneManager.currentScene.gameObjects.push(gameObject)

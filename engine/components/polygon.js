@@ -10,8 +10,8 @@ class Polygon extends Component{
         ctx.save()
         //centering drawing on x, y
         ctx.translate(this.transform.position.x, this.transform.position.y)
-        ctx.scale(this.transform.scale.x, this.transform.scale.y)
         ctx.rotate(this.transform.rotation)
+        ctx.scale(this.transform.scale.x, this.transform.scale.y)
 
         ctx.beginPath()
 
