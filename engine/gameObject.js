@@ -54,10 +54,16 @@ class GameObject{
     
     //draw component
     draw(ctx){
+
+        ctx.save()
+
+        ctx.setTransform(ctx.getTransform().multiply(this.transform.getWorldMatrix()))
+
         for(const component of this.components){
             //only draw if able, otherwise ignore
             component.draw?.(ctx)
         }
+        ctx.restore()
     }
 
     destroy(){
@@ -82,7 +88,7 @@ class GameObject{
 
     }
 
-    static findGameObjectByType(type){
+    static findGameObjectsByType(type){
         return SceneManager.currentScene.gameObjects.filter(go=>go.components.find(c=>c instanceof type))
     }
 }

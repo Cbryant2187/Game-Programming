@@ -7,5 +7,7 @@ class MainGameObject extends GameObject{
         
         // defining playable shape
         this.addComponent(new Polygon(), {fillstyle:"blue", points:Assets.triangle})
+
+        this.transform.scale
     }
 }

@@ -9,9 +9,9 @@ class Polygon extends Component{
         //begin drawing
         ctx.save()
         //centering drawing on x, y
-        ctx.translate(this.transform.position.x, this.transform.position.y)
-        ctx.rotate(this.transform.rotation)
-        ctx.scale(this.transform.scale.x, this.transform.scale.y)
+        //ctx.translate(this.transform.position.x, this.transform.position.y)
+        //ctx.rotate(this.transform.rotation)
+        //ctx.scale(this.transform.scale.x, this.transform.scale.y)
 
         ctx.beginPath()
 
