@@ -1,7 +1,11 @@
 class Transform extends Component{
-    //default values
+    /** @type{Vector2}*/
     position = new Vector2(0,0)
+
+    /** @type{Vector2}*/
     scale = new Vector2(1,1)
+
+    /** @type{Number}*/
     rotation = 0
 
     parent
@@ -11,17 +15,16 @@ class Transform extends Component{
     }
 
     getLocalMatrix(){
-        let matrix = new DOMMatrix
-
+        let matrix = new DOMMatrix()
         matrix.translateSelf(this.position.x, this.position.y)
         matrix.scaleSelf(this.scale.x, this.scale.y)
         matrix.rotateSelf(this.rotation * 180 / Math.PI)
-
         return matrix
     }
 
     getWorldMatrix(){
-        if(!this.parent) return this.getLocalMatrix
+        if(!this.parent) 
+            return this.getLocalMatrix()
         return this.parent.getWorldMatrix().multiply(this.getLocalMatrix())
     }
 }

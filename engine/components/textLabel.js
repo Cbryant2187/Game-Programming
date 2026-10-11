@@ -1,27 +1,26 @@
 class TextLabel extends Component{
-    fillstyle = "black"
-    text = "[BLANK]"
+    /** @type{string}*/
+    fillStyle = "black"
+
+    /** @type{string}*/
+    text  = "[BLANK]"
+
     font = "10px Arial"
 
-    draw(ctx){
-
-        //begin drawing
+    /**
+     * 
+     * @param {CanvasRenderingContext2D} ctx
+     */
+    draw(ctx) {
+        
         ctx.save()
-        //centering drawing on x, y
-        ctx.translate(this.transform.position.x, this.transform.position.y)
-        ctx.scale(this.transform.scale.x, this.transform.scale.y)
-        ctx.rotate(this.transform.rotation)
 
-        //coloring
-        ctx.fillstyle = this.fillstyle
+        ctx.fillStyle = this.fillStyle
 
         ctx.font = this.font
 
         ctx.fillText(this.text, 0, 0)
 
-        //end of drawing
         ctx.restore()
-
     }
-
 }

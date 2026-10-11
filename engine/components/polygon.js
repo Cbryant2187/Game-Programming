@@ -1,31 +1,27 @@
-class Polygon extends Component{
+class Polygon extends Component {
+    
+    /** @type{String}*/
+    fillStyle = "magenta"
 
-    //set default polygon attributes
-    fillstyle = "black"
+    /** @type{Vector2[]}*/
     points = []
 
-    draw(ctx){
-    
-        //begin drawing
+    /**
+     *
+     * @param {CanvasRenderingContext2D} ctx
+     */
+    draw(ctx) {
         ctx.save()
-        //centering drawing on x, y
-        //ctx.translate(this.transform.position.x, this.transform.position.y)
-        //ctx.rotate(this.transform.rotation)
-        //ctx.scale(this.transform.scale.x, this.transform.scale.y)
 
         ctx.beginPath()
-
-        //iterating over given points to create shape
         for(const point of this.points){
             ctx.lineTo(point.x, point.y)
         }
 
-        //coloring
-        ctx.fillstyle = this.fillstyle
+        ctx.fillStyle = this.fillStyle
+
         ctx.fill()
 
-        //end of drawing
         ctx.restore()
-
     }
 }

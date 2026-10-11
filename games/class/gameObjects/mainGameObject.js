@@ -1,13 +1,8 @@
 class MainGameObject extends GameObject{
     constructor(){
         super("Main", [], "ships")
-
-        // creating central shape/ playable object
         this.addComponent(new UpdateComponent())
-        
-        // defining playable shape
-        this.addComponent(new Polygon(), {fillstyle:"blue", points:Assets.triangle})
-
-        this.transform.scale
+        this.addComponent(new Polygon(), {fillStyle:"blue", points:Assets.triangle})
+        this.transform.scale = new Vector2(2,2)
     }
 }

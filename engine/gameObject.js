@@ -1,20 +1,34 @@
 class GameObject{
-
-    //default list of components
+    /**
+     * @type{Component[]}
+     */
     components = []
+
+    /**
+     * @type{Boolean}
+     */
     markForDestroy = false
+
+    /**
+     * @type{String}
+     */
     name
+
     tags = []
+
     layer = "default"
 
-    //find location of object
+    /** 
+     * @returns{Transform}
+    */
     get transform(){
-        //not good syntax
-        return this.components[0];
-
+        return /** @type {Transform} */ (this.components[0]);
     }
 
-    //create new component
+    /**
+     * 
+     * @param {String} name
+     */
     constructor(name, tags = [], layer = 'default'){
         this.addComponent(new Transform())
         this.name = name
@@ -22,45 +36,50 @@ class GameObject{
         this.layer = layer
     }
 
-    //connecting component to a gameobject
+    /**
+     * 
+     * @param {Component} component 
+     * @param {Object} parameters 
+     */
     addComponent(component, parameters){
         Object.assign(component, parameters)
         this.components.push(component)
         component.gameObject = this
     }
 
-    broadcastMessgae(message, args =[]){
+    broadcastMessage(message, args = []){
         for(const component of this.components){
             component[message]?.(...args)
         }
     }
 
-    //activate a component
     start(){
         for(const component of this.components.filter(c=>!c.didStart)){
-            //activate only if found and able, otherwise ignore
+            // @ts-expect-error
             component.start?.()
             component.didStart = true
         }
+
     }
 
-    //update component
     update(){
         for(const component of this.components){
-            //update only if found and able, otherwise ignore
+            // @ts-expect-error
             component.update?.()
         }
+
     }
-    
-    //draw component
+
+    /**
+     * 
+     * @param {CanvasRenderingContext2D} ctx
+     */
     draw(ctx){
 
         ctx.save()
-
         ctx.setTransform(ctx.getTransform().multiply(this.transform.getWorldMatrix()))
-
         for(const component of this.components){
-            //only draw if able, otherwise ignore
+            // @ts-expect-error
             component.draw?.(ctx)
         }
         ctx.restore()
@@ -68,24 +87,27 @@ class GameObject{
 
     destroy(){
         this.markForDestroy = true
-
     }
 
+    /**
+     * @template {Component} T
+     * @param {new (...args: any[]) => T} type
+     * @returns {T|undefined}
+     */
     getComponent(type){
-        return (this.components.find(c=>c instanceof type))
-
+        return /** @type {T|undefined} */ (this.components.find(c=>c instanceof type))
     }
 
+    /**
+     * @param {String} name
+     * @returns
+     */
     static find(name){
-        
         return SceneManager.currentScene.gameObjects.find(go=>go.name == name )
-
     }
 
     static findGameObjectsWithTag(tag){
-        
-        return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
-
+        return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag) )
     }
 
     static findGameObjectsByType(type){

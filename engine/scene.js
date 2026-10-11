@@ -1,5 +1,5 @@
 class Scene {
-    
+    /** @type{GameObject[]}*/
     gameObjects = []
 
     constructor(backgroundColor) {
@@ -11,13 +11,17 @@ class Scene {
         }
     }
 
+    /**
+     * @param {GameObject} gameObject
+     * @param {Vector2} position
+     * @param {Number} rotation
+     */
     instantiate(gameObject, position = new Vector2(0, 0), rotation = 0) {
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
         gameObject.transform.rotation = rotation
         return gameObject
     }
-
 
     start() {
         for (const gameObject of this.gameObjects) {
@@ -37,11 +41,14 @@ class Scene {
         }
         this.gameObjects = temp
     }
+
+    /**
+     * @param {CanvasRenderingContext2D} ctx
+     */
     draw(ctx) {
         ctx.fillStyle = Camera.main.backgroundColor
         ctx.fillRect(0, 0, Engine.canvas.width, Engine.canvas.height)
 
-        //Start Camera code
         ctx.save()
         ctx.translate(Engine.canvas.width / 2, Engine.canvas.height / 2)
         ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
@@ -54,12 +61,18 @@ class Scene {
 
 
         ctx.restore()
+        
         for (const gameObject of this.gameObjects.filter(go => go.layer == "UI")) {
             gameObject.draw(ctx)
         }
     }
 }
 
+/**
+ * @param {GameObject} gameObject
+ * @param {Vector2} position
+ * @param {Number} rotation
+ */
 function instantiate(gameObject, position = new Vector2(0, 0), rotation = 0) {
     return SceneManager.currentScene.instantiate(gameObject, position, rotation)
 }

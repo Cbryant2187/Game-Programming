@@ -1,10 +1,18 @@
 class Engine {
-    
+    /**
+     * @type{HTMLCanvasElement}
+     */
     static canvas
+
+    /**
+     * @type{CanvasRenderingContext2D}
+     * 
+     */
     static ctx
+
     static layers = ["default", "UI"]
 
- 
+
     static start(nextScene, settings) {
         
         Engine.canvas = document.querySelector("#canv")
@@ -12,9 +20,11 @@ class Engine {
         Engine.ctx = Engine.canvas.getContext("2d")
 
         addEventListener("keydown", Input.keydown)
+
         addEventListener("keyup", Input.keyup)
 
         addEventListener("mousedown", Input.mousedown)
+
         addEventListener("mouseup", Input.mouseup)
 
         SceneManager.nextScene = nextScene
@@ -29,7 +39,7 @@ class Engine {
     static gameLoop() {
         SceneManager.update()
 
-        //Update and draw
+
         Engine.update()
         Engine.draw()
 
@@ -40,16 +50,14 @@ class Engine {
     }
 
     static update() {
-        
         SceneManager.currentScene.start()
         SceneManager.currentScene.update()
     }
 
     static draw() {
-        
+ 
         Engine.canvas.width = window.innerWidth
         Engine.canvas.height = window.innerHeight
-
 
         SceneManager.currentScene.draw(Engine.ctx)
     }

@@ -1,11 +1,14 @@
 class Component{
+
+    /** @type{GameObject} */
     gameObject
 
     didStart = false
 
-    //find a game objects position
+    /**
+     * @returns{Transform}
+     */
     get transform(){
         return this.gameObject.transform
     }
-
 }
