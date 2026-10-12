@@ -16,10 +16,19 @@ class SuperObstacleComponent extends Component{
             }
         }
 
+        let superObPosition = this.transform.position
+        let playerGameObject = GameObject.findGameObjectsWithTag("Player")
+        for (const playerGameObject of playerGameObjects){
+            let playerPosition = playerGameObject.transform.position
+            let distance = superObPosition.minus(playerPosition).magnitude
+            if (distance < 5) {
+                this.gameobject.destroy()
+            }
+        }
+
         let obstacleGameObjects = GameObject.findGameObjectsWithTag("Obstacle")
         if (!obstacleGameObjects){
             Engine.start(Level2)
         }
-        
     }
-}   
+}

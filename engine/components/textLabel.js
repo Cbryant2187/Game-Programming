@@ -16,9 +16,7 @@ class TextLabel extends Component{
         ctx.save()
 
         ctx.fillStyle = this.fillStyle
-
         ctx.font = this.font
-
         ctx.fillText(this.text, 0, 0)
 
         ctx.restore()

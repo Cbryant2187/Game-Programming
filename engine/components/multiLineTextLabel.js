@@ -1,0 +1,25 @@
+class MultiLineTextLabel extends Component{
+    /** @type{string}*/
+    fillStyle = "black"
+
+    /** @type{string}*/
+    text  = "[BLANK]"
+
+    font = "10px Arial"
+
+    /**
+     * 
+     * @param {CanvasRenderingContext2D} ctx
+     */
+    draw(ctx) {
+        
+        ctx.save()
+
+        ctx.fillStyle = this.fillStyle
+        ctx.font = this.font
+
+        ctx.fillText(this.text, 0, 0)
+
+        ctx.restore()
+    }
+}

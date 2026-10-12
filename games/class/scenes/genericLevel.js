@@ -7,5 +7,12 @@ class GenericLevel extends Scene{
 
         helperGameObject.transform.setParent(mainGameObject.transform)
 
+        let sceneTimer = new GameObject("SceneTimer", [], "UI")
+        sceneTimer.addComponent(new TextLabel(), {fillstyle: "white"})
+        sceneTimer.addComponent(new SceneTimerController())
+        this.instantiate(sceneTimer, new Vector2(0, 50))
+
+        let wrappedText = new GameObject("WrappedText", [], "UI")
+        this.instantiate()
     }
 }

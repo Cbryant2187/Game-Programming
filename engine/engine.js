@@ -27,6 +27,8 @@ class Engine {
 
         addEventListener("mouseup", Input.mouseup)
 
+        addEventListener("mousemove", Input.mousemove)
+
         SceneManager.nextScene = nextScene
 
         if(settings){

@@ -17,15 +17,9 @@ class PlayerUpdateComponentG2 extends Component{
         if (Input.keysDown.includes("ArrowDown"))
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
 
-        let myPosition = this.transform.position
-        let obstacleControllerGameObjects = GameObject.findGameObjectsWithTag("ObstacleController")
-        for (const obstacleControllerGameObject of obstacleControllerGameObjects) {
-            let obstaclePosition = obstacleGameObject.transform.position
-            let distance = myPosition.minus(enemyPosition).magnitude
-            if (distance < 5) {
-                this.gameObject.destroy()
-            
-            }
+        let obstacleGameObjects = GameObject.findGameObjectsWithTag("Obstacle")
+        if (!obstacleGameObjects){
+            Engine.start(Level2)
         }
     }
 }
