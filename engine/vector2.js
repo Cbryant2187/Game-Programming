@@ -46,4 +46,12 @@ class Vector2{
     clone(){
         return new Vector2(this.x, this.y)
     }
+
+    dot(other){
+        return this.x*other.x+this.y*other.y
+    }
+
+    orthogonel(){
+        return new Vector2(this.y - this.x)
+    }
 }

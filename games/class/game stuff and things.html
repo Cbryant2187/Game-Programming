@@ -24,6 +24,7 @@
     <script src="../../engine/gameObject.js"></script>
     <script src="../../engine/scene.js"></script>
     <script src="../../engine/sceneManager.js"></script>
+    <script src="../../engine/collisions.js"></script>
 
     <script src="../../engine/time.js"></script>
     
@@ -59,6 +60,15 @@
     <script>
 
         Engine.start(Level01, Settings)
+
+
+        let gameObject = new GameObject()
+        gameObject.addComponent(new Polygon(), {points: [
+            new Vector2(0, -1),
+            new Vector2(-1, 1),
+            new Vector2(1, 1),
+        ]})
+        console.assert(Collision.isCollisionPointsPolygon(new Vector2(0,0,)))
 
     </script>
 </body>
