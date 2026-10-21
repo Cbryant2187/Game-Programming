@@ -24,5 +24,18 @@ class UpdateComponent extends Component {
         }
         
         Camera.main.transform.position = this.transform.position.clone()
+
+        const enemies = GameObject.findGameObjectsWithTag("Enemy")
+        for(const enemy of enamies){
+            if(Collisions.isCollisionPointPolygon(this.gameObject, enemy)){
+                console.log("collision")
+            }
+        }
+    }
+    onCollisionStay(other){
+        console.log(other)
+    }
+    onMouseOver(){
+        console.log("mouse over")
     }
 }

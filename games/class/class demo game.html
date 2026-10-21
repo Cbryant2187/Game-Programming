@@ -33,6 +33,7 @@
     <script src="../../engine/components/textLabel.js"></script>
     <script src="../../engine/components/camera.js"></script>
     <script src="../../engine/components/multiLineTextLabel.js"></script>
+    <script src="../../engine/components/collider.js"></script>
 
     <script src="./components/updateComponent.js"></script>
     <script src="./components/laserController.js"></script>
@@ -68,6 +69,10 @@
             new Vector2(-1, 1),
             new Vector2(1, 1),
         ]})
+
+        let two = new GameObject()
+        two.addComponent(new Polygon)
+
         console.assert(Collision.isCollisionPointsPolygon(new Vector2(0,0,)))
 
     </script>
