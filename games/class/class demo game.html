@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Bryant Class Game Demo</title>
-
+    <title>Game Loop</title>
+    
     <style>
         * {
             margin: 0;
@@ -12,11 +12,12 @@
     </style>
 </head>
 
-<body>
-    <canvas id="canv">
+<body> 
+    <canvas id="canv"> 
 
     </canvas>
 
+  
     <script src="../../engine/vector2.js"></script>
     <script src="../../engine/input.js"></script>
     <script src="../../engine/engine.js"></script>
@@ -58,22 +59,40 @@
     <script src="./globals.js"></script>
     <script src="./settings.js"></script>
 
+
+    
     <script>
-
+        
         Engine.start(Level01, Settings)
-
 
         let gameObject = new GameObject()
         gameObject.addComponent(new Polygon(), {points: [
             new Vector2(0, -1),
             new Vector2(-1, 1),
-            new Vector2(1, 1),
+            new Vector2(1, 1)
         ]})
+        gameObject.addComponent(new Collider())
 
         let two = new GameObject()
-        two.addComponent(new Polygon)
+        two.addComponent(new Polygon(), {points: [
+            new Vector2(0, -1),
+            new Vector2(-1, 1),
+            new Vector2(1, 1)
+        ]})
+        two.addComponent(new Collider())
 
-        console.assert(Collision.isCollisionPointsPolygon(new Vector2(0,0,)))
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0,0), gameObject))
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0,0.99999), gameObject))
+
+
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(10000,10000), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0,1.1), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0,-1.1), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0,-1.00001), gameObject))
+
+        console.assert(Collisions.isCollisionPolygonPolygon(gameObject, two))
+        two.transform.position = new Vector2(1000, 1000)
+        console.assert(!Collisions.isCollisionPolygonPolygon(gameObject, two))
 
     </script>
 </body>

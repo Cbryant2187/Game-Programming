@@ -1,10 +1,9 @@
-class SceneTimerController extends Component{
+class SceneTimerController extends Component {
     startTime
-    start(){
+    start() {
         this.startTime = Time.time
-            
     }
-    update(){
+    update() {
         let sceneTime = Time.time - this.startTime
 
         sceneTime = Math.floor(sceneTime * 100)/100
@@ -13,9 +12,8 @@ class SceneTimerController extends Component{
         let sceneTimeSeconds = 0
 
         sceneTimeMinutes = Math.floor(sceneTime / 60)
-        sceneTimeSeconds = Math.floor(sceneTime - sceneTimeMinutes*60).toFixed(2)
+        sceneTimeSeconds = (sceneTime - sceneTimeMinutes*60).toFixed(2)//Math.floor((sceneTime % 10)*100)/100
 
-        this.gameObject.getComponent(TextLabel.text = sceneTimeMinutes + ":" + sceneTimeSeconds)
-            
+        this.gameObject.getComponent(TextLabel).text = sceneTimeMinutes + ":" + sceneTimeSeconds
     }
 }

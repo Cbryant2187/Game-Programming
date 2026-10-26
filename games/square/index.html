@@ -1,0 +1,69 @@
+<!doctype html> <!-- Tells the browser we are using html 5-->
+<html> <!-- Start the html document-->
+
+<head> <!-- Provide the header (meta) Information-->
+    <title>Game</title> <!-- The title of the html page, as shown in the tab by the browser-->
+
+    <!-- Cascading Style Sheets that define how to render elements in our page-->
+    <style>
+        /* Remove the margins and make sure we never show the scrollbars */
+        * {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body> <!-- The main content in our browser window-->
+    <canvas id="canv"> <!-- The canvas where we will draw our game -->
+
+    </canvas>
+
+    <!-- Include external js files, similar to Python import statements-->
+    <script src="../../engine/vector2.js"></script>
+    <script src="../../engine/input.js"></script>
+    <script src="../../engine/engine.js"></script>
+    <script src="../../engine/component.js"></script>
+    <script src="../../engine/gameObject.js"></script>
+    <script src="../../engine/scene.js"></script>
+    <script src="../../engine/sceneManager.js"></script>
+    <script src="../../engine/collisions.js"></script>
+
+    <script src="../../engine/time.js"></script>
+    
+    <script src="../../engine/components/transform.js"></script>
+    <script src="../../engine/components/polygon.js"></script>
+    <script src="../../engine/components/textLabel.js"></script>
+    <script src="../../engine/components/camera.js"></script>
+    <script src="../../engine/components/multiLineTextLabel.js"></script>
+    <script src="../../engine/components/collider.js"></script>
+
+
+    <!-- Game-Specific Components -->
+    <script src="./components/SquareController.js"></script>
+    <script src="./components/ObjectiveController.js"></script>
+    <script src="./components/G3LevelController.js"></script>
+
+    <!-- Game-specific Game Objects -->
+    <script src="./gameObjects/SquareGameObject.js"></script>
+    <script src="./gameObjects/ObjectiveGameObject.js"></script>
+
+    <!-- Game-specific Scenes -->
+    <script src="./scenes/G3MainScene.js"></script>
+    <script src="./scenes/G3Scene2.js"></script>
+
+    <script src="./Assets.js"></script>
+    <script src="./Globals.js"></script>
+    <script src="./Settings.js"></script>
+
+
+    <!-- Our custom code for our game. In the future, all this code will be in individual js files-->
+    <script>
+        //Start the game engine
+        //Every game we make will need to call this function.
+        Engine.start(MainScene, Settings)
+
+    </script>
+</body>
+
+</html>

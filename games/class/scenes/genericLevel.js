@@ -3,16 +3,20 @@ class GenericLevel extends Scene{
         super()
         let mainGameObject = this.instantiate(new MainGameObject(), new Vector2(50, 300))
         this.instantiate(new PointsGameObject(), new Vector2(0, 20))
+        // Camera.main.backgroundColor = "cyan"
+
         let helperGameObject = this.instantiate(new HelperGameObject(), new Vector2(50,50))
 
         helperGameObject.transform.setParent(mainGameObject.transform)
 
         let sceneTimer = new GameObject("SceneTimer", [], "UI")
-        sceneTimer.addComponent(new TextLabel(), {fillstyle: "white"})
+        sceneTimer.addComponent(new TextLabel(), {fillStyle:"gray", font:"30px Times"})
         sceneTimer.addComponent(new SceneTimerController())
         this.instantiate(sceneTimer, new Vector2(0, 50))
 
+
         let wrappedText = new GameObject("WrappedText", [], "UI")
-        this.instantiate()
+        wrappedText.addComponent(new MultiLineTextLabel(), {fillStyle:"gray", text:"We the People", font:"30px Times"})
+        this.instantiate(wrappedText, new Vector2(0, 100))
     }
 }
