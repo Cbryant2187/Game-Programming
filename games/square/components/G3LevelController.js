@@ -1,11 +1,15 @@
 class LevelController extends Component{
     start(){
-        SceneManager.loadScene(MainScene, true)
+        console.log("pre start")
+        SceneManager.loadScene(MainScene)
+        console.log("post start")
     }
     update(){
-        if(Globals.points >= 5){
-            Globals.points = 0
+        console.log("pre update")
+        if(Globals.points > 1){
+            console.log("in update")
             SceneManager.loadScene(Scene2)
         }
+        console.log("post update")
     }
 }

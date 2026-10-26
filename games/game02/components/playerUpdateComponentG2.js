@@ -17,9 +17,16 @@ class PlayerUpdateComponentG2 extends Component{
         if (Input.keysDown.includes("ArrowDown"))
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
 
-        let obstacleGameObjects = GameObject.findGameObjectsWithTag("Obstacle")
-        if (!obstacleGameObjects){
-            Engine.start(Level2)
+        //let obstacleGameObjects = GameObject.findGameObjectsWithTag("Obstacle")
+        //if (!obstacleGameObjects){
+        //    Engine.start(Level2)
+        //}
+        const obstacle = GameObject.findGameObjectsWithTag("ObstacleController")
+        for(const obstacle of Obstacles){
+             if(Collisions.isCollisionPolygonPolygon(this.gameObject, obstacle)){
+             
+                obstacle.destroy()
+             }
         }
     }
 }
