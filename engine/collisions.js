@@ -53,7 +53,7 @@ class Collisions {
         for(let i = 0; i < worldSpacePoints.length; i++){
             let point1 = worldSpacePoints[i]
             let point2 = worldSpacePoints[(i+1)%worldSpacePoints.length]
-            let edge = point2.minus(point1)
+            let edge = point2.minus(point1).normalized()
             let axis = edge.orthogonal()
             axes.push(axis)
         }
@@ -61,18 +61,29 @@ class Collisions {
         for(let i = 0; i < worldSpacePointsTwo.length; i++){
             let point1 = worldSpacePointsTwo[i]
             let point2 = worldSpacePointsTwo[(i+1)%worldSpacePointsTwo.length]
-            let edge = point2.minus(point1)
+            let edge = point2.minus(point1).normalized()
             let axis = edge.orthogonal()
             axes.push(axis)
         }
 
+        let mtv = new Vector2(Number.MAX_VALUE, Number.MAX_VALUE)
         for(const axis of axes){
             //Check for overlap
             let polygonProjections = worldSpacePoints.map(p=>p.dot(axis))
             let polygonProjectionsTwo = worldSpacePointsTwo.map(p=>p.dot(axis))
             if(Math.max(...polygonProjectionsTwo) < Math.min(...polygonProjections) || Math.min(...polygonProjectionsTwo) > Math.max(...polygonProjections))
                 return false
+            const minOverlap = Math.min(
+                Math.max(...polygonProjectionsTwo) - Math.min(...polygonProjections),
+                Math.max(...polygonProjections) - Math.min(...polygonProjectionsTwo)
+            )
+            if(minOverlap < mtv.magnitude){
+                mtv = axis.normalized().scaled(minOverlap)
+            }
+            
         }
-        return true
+        if(gameObject.transform.poisition.minus(gameObjectTwo.transform.position).dot(mtv) > 0)
+            return mtv
+        return mtv.scaled(-1)
     }
-}
+} 

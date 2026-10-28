@@ -58,13 +58,28 @@ class Scene {
             }
 
         }
-
+        
+        const physcialCollisions = []
         for(let i = 0; i < collidable.length; i++){
             for(let j = i + 1; j < collidable.length; j++){
+                const mtv = Collisions.isCollisionPolygonPolygon(collidable[i])
                 if(Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j])){
-                    collidable[i].broadcastMessage("onCollisionStay", [collidable[j]])
-                    collidable[j].broadcastMessage("onCollisionStay", [collidable[i]])
+                    collidable[i].broadcastMessage("onCollisionStay", [collidable[j], mtv])
+                    collidable[j].broadcastMessage("onCollisionStay", [collidable[i]], mtv.scaled(-1))
+
+                    if (collidable[i].getComponent(RigidBody) || collidable[j].getComponent(RigidBody)){
+                        physcialCollisions.push({one:collidable[i], two:collidable[j], mtv})
+                    }
                 }
+            }
+        }
+
+        for(const physcialCollision of physcialCollisions){
+            if(physcialCollision.one.getComponent(RigidBody)){
+                physcialCollision.one.transform.plusEquals(physcialCollision.mtv)
+            }
+            if(physcialCollision.two.getComponent(RigidBody)){
+                physcialCollision.two.transform.plusEquals(physcialCollision.mtv.scaled(-1))
             }
         }
 
