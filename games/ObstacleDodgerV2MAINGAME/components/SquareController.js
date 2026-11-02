@@ -23,11 +23,12 @@ class SquareController extends Component{
         const objectives = GameObject.findGameObjectsWithTag("Objective")
         for(const objective of objectives){
             if(Collisions.isCollisionPolygonPolygon(this.gameObject, objective)){
-                let newX = Math.floor(Math.random() * (-600 - 600 + 1)) + 600;
-                let newY = Math.floor(Math.random() * (-300 - 275 + 1)) + 275;
+                let newX = Math.floor(Math.random() * (-500 - 500 + 1)) + 500;
+                let newY = Math.floor(Math.random() * (-200 - 175 + 1)) + 175;
                 instantiate(new ObjectiveGameObject(), new Vector2(newX, newY))
                 
                 Globals.points = Globals.points + 1
+                console.log(Globals.points)
 
                 objective.destroy()
             }
@@ -37,7 +38,7 @@ class SquareController extends Component{
         for(const obstacle of obstacles){
             if(Collisions.isCollisionPolygonPolygon(this.gameObject, obstacle)){
                 console.log("Collision")
-                //Globals.death = 0
+                Globals.death = Globals.death + 1
 
             }
         }
