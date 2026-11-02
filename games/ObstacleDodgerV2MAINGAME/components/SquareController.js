@@ -3,7 +3,7 @@ class SquareController extends Component{
   speed = 500
 
   start(){
-
+    Globals.death = 0
   }
 
   update(){
@@ -28,8 +28,17 @@ class SquareController extends Component{
                 instantiate(new ObjectiveGameObject(), new Vector2(newX, newY))
                 
                 Globals.points = Globals.points + 1
-                console.log(Globals.points)
+
                 objective.destroy()
+            }
+        }
+
+        const obstacles = GameObject.findGameObjectsWithTag("Obstacle")
+        for(const obstacle of obstacles){
+            if(Collisions.isCollisionPolygonPolygon(this.gameObject, obstacle)){
+                console.log("Collision")
+                //Globals.death = 0
+
             }
         }
     }

@@ -21,8 +21,8 @@ class PlayerUpdateComponentG2 extends Component{
         //if (!obstacleGameObjects){
         //    Engine.start(Level2)
         //}
-        const obstacle = GameObject.findGameObjectsWithTag("ObstacleController")
-        for(const obstacle of Obstacles){
+        const obstacles = GameObject.findGameObjectsWithTag("ObstacleController")
+        for(const obstacle of obstacles){
              if(Collisions.isCollisionPolygonPolygon(this.gameObject, obstacle)){
              
                 obstacle.destroy()
