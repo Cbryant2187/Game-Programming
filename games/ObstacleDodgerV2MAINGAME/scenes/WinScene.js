@@ -1,6 +1,6 @@
 class WinScene extends Scene{
     constructor(){
-        super("light blue")
+        super("lightblue")
         this.instantiate(new SquareGameObject(), new Vector2(0,0), 0)
         
 
