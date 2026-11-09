@@ -1,4 +1,4 @@
-class HorizontalObstacleComponent extends Component{
+class RLHorizontalObstacleComponent extends Component{
     update(){
         this.transform.position.x += 7
 

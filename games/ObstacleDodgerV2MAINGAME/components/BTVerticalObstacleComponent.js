@@ -1,4 +1,4 @@
-class VerticalObstacleComponent extends Component{
+class BTVerticalObstacleComponent extends Component{
     update(){
         this.transform.position.y -= 7
 
