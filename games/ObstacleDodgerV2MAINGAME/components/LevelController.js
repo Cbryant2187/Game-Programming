@@ -28,11 +28,14 @@ class LevelController extends Component{
                 Globals.levelTracker = Globals.levelTracker + 1
                 SceneManager.loadScene(WinScene)
                 Globals.points = 0
+                Globals.levelTracker = 0
             }
         }
 
         if(Globals.death > 1){
             SceneManager.loadScene(GameOverScene)
+            Globals.points = 0
+            Globals.levelTracker = 0
         }
     }
 }

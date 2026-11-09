@@ -1,8 +1,12 @@
 class BTVerticalObstacleComponent extends Component{
     update(){
-        this.transform.position.y -= 7
+        if(Globals.obY < 0){
+            this.transform.position.y -= 7
+        } else {
+            this.transform.position.y += 7
+        }
 
-        if(this.transform.position.y < -250){
+        if(this.transform.position.y < -350 || this.transform.position.y > 350){
             this.gameObject.destroy()
         }
     }
