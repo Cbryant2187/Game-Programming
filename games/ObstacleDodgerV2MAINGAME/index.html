@@ -41,6 +41,9 @@
 
 
     <!-- Game-Specific Components -->
+    <script src="components/ButtonController.js"></script>
+    <script src="components/SuperPowerUpController.js"></script>
+    <script src="components/ClearBoardPowerUpController.js"></script>
     <script src="components/TryAgainGameObjectController.js"></script>
     <script src="./components/SquareController.js"></script>
     <script src="./components/ObjectiveController.js"></script>
@@ -51,6 +54,10 @@
     <script src="./components/TryAgainGameObjectController.js"></script>
 
     <!-- Game-specific Game Objects -->
+    <script src="gameObjects/ButtonConfirmGameObject.js"></script>
+    <script src="gameObjects/DifficultyOneButton.js"></script>
+    <script src="gameObjects/SuperPowerUpObject.js"></script>
+    <script src="gameObjects/ClearBoardPowerUp.js"></script>
     <script src="gameObjects/TryAgainGameObject.js"></script>
     <script src="./gameObjects/SquareGameObject.js"></script>
     <script src="./gameObjects/ObjectiveGameObject.js"></script>
@@ -62,6 +69,7 @@
 
 
     <!-- Game-specific Scenes -->
+    <script src="scenes/MenuScene.js"></script>
     <script src="./scenes/MainScene.js"></script>
     <script src="./scenes/Scene2.js"></script>
     <script src="./scenes/Scene3.js"></script>
@@ -75,7 +83,7 @@
 
 
     <script>
-        Engine.start(MainScene, Settings)
+        Engine.start(MenuScene, Settings)
 
     </script>
 </body>

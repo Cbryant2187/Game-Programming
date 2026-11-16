@@ -7,5 +7,6 @@ class Scene3 extends Scene{
     this.instantiate(new SuperObstacleObject())
     this.instantiate(new SuperObstacleObject())
     this.instantiate(new SuperObstacleObject())
+    this.instantiate(new SuperPowerUpObject())
   }
 }

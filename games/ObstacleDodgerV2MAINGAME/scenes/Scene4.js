@@ -1,6 +1,6 @@
 class Scene4 extends Scene{
   constructor(){
-    super("purple")
+    super("thistle")
     this.instantiate(new SquareGameObject(), new Vector2(0,0), 0)
     this.instantiate(new ObjectiveGameObject(), new Vector2(100, 100), 0)
     this.instantiate(new LevelControllerObject())
@@ -8,5 +8,6 @@ class Scene4 extends Scene{
     this.instantiate(new SuperObstacleObject())
     this.instantiate(new SuperObstacleObject())
     this.instantiate(new SuperObstacleObject())
+    this.instantiate(new SuperPowerUpObject())
   }
 }

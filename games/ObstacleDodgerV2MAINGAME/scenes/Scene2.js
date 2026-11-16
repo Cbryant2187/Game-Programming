@@ -6,5 +6,6 @@ class Scene2 extends Scene{
     this.instantiate(new LevelControllerObject())
     this.instantiate(new SuperObstacleObject())
     this.instantiate(new SuperObstacleObject())
+    this.instantiate(new SuperPowerUpObject())
   }
 }

@@ -5,5 +5,6 @@ class MainScene extends Scene{
     this.instantiate(new ObjectiveGameObject(), new Vector2(100, 100), 0)
     this.instantiate(new LevelControllerObject())
     this.instantiate(new SuperObstacleObject())
+    this.instantiate(new SuperPowerUpObject())
   }
 }
