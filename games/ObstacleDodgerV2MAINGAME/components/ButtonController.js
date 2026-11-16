@@ -1,6 +1,4 @@
 class ButtonController extends Component{
-    selected = 0
-    flip = 0
 
     start(){
         
@@ -9,7 +7,11 @@ class ButtonController extends Component{
         const players = GameObject.findGameObjectsWithTag("Player")
         for(const player of players){
             if(Collisions.isCollisionPolygonPolygon(this.gameObject, player)){
-                this.selected = 1
+                const otherConfirms = GameObject.findGameObjectsWithTag("Confirm")
+                for(const otherConfirm of otherConfirms){
+                    otherConfirm.destroy()
+                }
+
                 instantiate(new ButtonConfirmGameObject(), this.gameObject.transform.position.clone())
 
             }
