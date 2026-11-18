@@ -4,8 +4,8 @@ class MenuScene extends Scene{
         this.instantiate(new SquareGameObject(), new Vector2(0,0), 0)
         this.instantiate(new TryAgainGameObject(), new Vector2(0, 180))
         this.instantiate(new DifficultyOneButton(), new Vector2(300, 0))
-        this.instantiate(new DifficultyOneButton(), new Vector2(300, 50))
-        this.instantiate(new DifficultyOneButton(), new Vector2(300, 100))
+        this.instantiate(new DifficultyTwoButton(), new Vector2(300, 50))
+        this.instantiate(new DifficultyThreeButton(), new Vector2(300, 100))
 
         
         let menuText = new GameObject("WrappedText", [], "UI")

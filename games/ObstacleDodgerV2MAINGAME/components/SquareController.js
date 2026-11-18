@@ -1,23 +1,23 @@
 class SquareController extends Component{
 
-  speed = 500
+  speed = 250
 
   start(){
     Globals.death = 0
   }
 
   update(){
-      if (Input.keysDown.includes("ArrowRight"))
+      if (Input.keysDown.includes("ArrowRight") || Input.keysDown.includes("KeyD"))
             this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
 
-        if (Input.keysDown.includes("ArrowLeft"))
+        if (Input.keysDown.includes("ArrowLeft") || Input.keysDown.includes("KeyA"))
             this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
 
 
-        if (Input.keysDown.includes("ArrowUp"))
+        if (Input.keysDown.includes("ArrowUp") || Input.keysDown.includes("KeyW"))
             this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
 
-        if (Input.keysDown.includes("ArrowDown"))
+        if (Input.keysDown.includes("ArrowDown") || Input.keysDown.includes("KeyS"))
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
 
         const objectives = GameObject.findGameObjectsWithTag("Objective")
