@@ -77,6 +77,16 @@ class GameObject{
     draw(ctx){
 
         ctx.save()
+        if(this.transform instanceof RectTranform){
+            const width = Engine.canvas.width
+            const height = Engine.canvas.height
+
+            const upperLeft = new Vector2(width * this.transform.anchorMin.x + this.transform.offSetUpperLeft.x,
+                                )
+
+            this.transform.position = new Vector2((upperLeft.x + lowerRight.x)/2, (upperLeft.y + lowerRight.7)/2)
+            this.transform.position = new Vector2((upperLeft.x + lowerRight.x)/2, (upperLeft.y + lowerRight.7)/2)
+            
         ctx.setTransform(ctx.getTransform().multiply(this.transform.getWorldMatrix()))
         for(const component of this.components){
             // @ts-expect-error

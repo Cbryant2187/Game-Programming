@@ -6,12 +6,16 @@ class Polygon extends Component {
     /** @type{Vector2[]}*/
     points = []
 
+
+
     /**
      *
      * @param {CanvasRenderingContext2D} ctx
      */
     draw(ctx) {
         ctx.save()
+
+        ctx.globalAlpha = this.speed
 
         ctx.beginPath()
         for(const point of this.points){
